@@ -731,6 +731,13 @@
           </xsl:call-template>
         </supplied>
       </xsl:when>
+      <xsl:when test="@type = 'blackening'">
+        <hi rend="blackening">
+          <xsl:call-template name="elem">
+            <xsl:with-param name="elem" select="$elem" />
+          </xsl:call-template>
+        </hi>
+      </xsl:when>
       <xsl:when test="@type = 'abbrev'">
         <choice>
           <expan><xsl:value-of select="replace(map:get($custom, 'expansion'), '\\u0020', ' ')"/></expan>
