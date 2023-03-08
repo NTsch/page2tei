@@ -446,9 +446,15 @@
          </xsl:when>
          <!-- the fallback option should be a semantically open element such as <ab> -->
          <xsl:otherwise xml:space="preserve">
-            <ab facs="#facs_{$numCurr}_{@id}" type="{@type}{$custom?structure?type}"
-               ><xsl:apply-templates select="p:TextLine" />
-            </ab></xsl:otherwise>
+            <ab facs="#facs_{$numCurr}_{@id}">
+              <xsl:if test="concat(@type, $custom?structure?type) != ''">
+                <xsl:attribute name="type">
+                  <xsl:value-of select="concat(@type, $custom?structure?type)"/>
+                </xsl:attribute>
+              </xsl:if>
+              <xsl:apply-templates select="p:TextLine" />
+            </ab>
+         </xsl:otherwise>
       </xsl:choose>
    </xsl:template>
   
