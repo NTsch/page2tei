@@ -738,7 +738,7 @@
         </supplied>
       </xsl:when>
       <xsl:when test="@type = 'blackening'">
-        <hi rend="blackening">
+        <hi style="blackening">
           <xsl:call-template name="elem">
             <xsl:with-param name="elem" select="$elem" />
           </xsl:call-template>
