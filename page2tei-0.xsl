@@ -737,6 +737,20 @@
           </xsl:call-template>
         </supplied>
       </xsl:when>
+      <xsl:when test="@type = 'insertion'">
+        <supplied>
+          <xsl:call-template name="elem">
+            <xsl:with-param name="elem" select="$elem" />
+          </xsl:call-template>
+        </supplied>
+      </xsl:when>
+      <xsl:when test="@type = 'missing'">
+        <supplied>
+          <xsl:call-template name="elem">
+            <xsl:with-param name="elem" select="$elem" />
+          </xsl:call-template>
+        </supplied>
+      </xsl:when>
       <xsl:when test="@type = 'blackening'">
         <hi style="blackening">
           <xsl:call-template name="elem">
@@ -744,6 +758,7 @@
           </xsl:call-template>
         </hi>
       </xsl:when>
+      
       <xsl:when test="@type = 'abbrev'">
         <choice>
           <expan><xsl:value-of select="replace(map:get($custom, 'expansion'), '\\u0020', ' ')"/></expan>
